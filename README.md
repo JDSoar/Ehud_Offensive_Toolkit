@@ -1,4 +1,4 @@
 # Hacking_Tools
 
-### Run hacking-tools.sh
-### If KDE was installed, run KDE_Setup.sh
+1. Run hacking-tools.sh
+2. If KDE was installed, run KDE_Setup.sh
