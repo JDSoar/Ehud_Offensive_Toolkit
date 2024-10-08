@@ -1,0 +1,17 @@
+#Add tools from the APT repo below:
+
+git
+openvpn
+nmap
+ffuf
+dirbuster
+nikto
+zaproxy
+burpsuite
+hydra
+wireshark
+sqlmap
+metasploit-framework
+subfinder
+hashcat
+wpscan
