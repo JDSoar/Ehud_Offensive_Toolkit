@@ -2,24 +2,41 @@
 
 echo "WARNING: Running this script will reboot your system!"
 
-
-#Set Wallpaper
 # Get the full path of the script's directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Set the wallpaper
-qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript '
-    var allDesktops = desktops();
-    for (i = 0; i < allDesktops.length; i++) {
-        d = allDesktops[i];
-        d.wallpaperPlugin = "org.kde.image";
-        d.currentConfigGroup = Array("Wallpaper", "org.kde.image", "General");
-        d.writeConfig("Image", "file://'"$SCRIPT_DIR"'/hacker.jpg");
-    }
-'
+# Check if script is being run as root (with sudo)
+if [ "$EUID" -eq 0 ]; then
+    echo "Running as root. Switching to original user."
+    # Get the original user who invoked sudo
+    ORIGINAL_USER=$SUDO_USER
+    # Set the correct environment for the original user
+    export XAUTHORITY=/run/user/$(id -u $ORIGINAL_USER)/.Xauthority
+    export DISPLAY=:0
+    export XDG_RUNTIME_DIR=/run/user/$(id -u $ORIGINAL_USER)
+    # Run the KDE wallpaper command as the original user
+    sudo -u $ORIGINAL_USER qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
+        var allDesktops = desktops();
+        for (i = 0; i < allDesktops.length; i++) {
+            d = allDesktops[i];
+            d.wallpaperPlugin = 'org.kde.image';
+            d.currentConfigGroup = Array('Wallpaper', 'org.kde.image', 'General');
+            d.writeConfig('Image', 'file://$SCRIPT_DIR/hacker.jpg');
+        }
+    "
+else
+    # Not running as root, execute the KDE command directly
+    qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
+        var allDesktops = desktops();
+        for (i = 0; i < allDesktops.length; i++) {
+            d = allDesktops[i];
+            d.wallpaperPlugin = 'org.kde.image';
+            d.currentConfigGroup = Array('Wallpaper', 'org.kde.image', 'General');
+            d.writeConfig('Image', 'file://$SCRIPT_DIR/hacker.jpg');
+        }
+    "
+fi
 
 echo "Wallpaper has been set to $SCRIPT_DIR/hacker.jpg"
-
 
 #Change Desktop to Darkmode
 # Get the original user who invoked sudo (or the current user if not using sudo)
