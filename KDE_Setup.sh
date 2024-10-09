@@ -22,7 +22,16 @@ echo "Wallpaper has been set to $SCRIPT_DIR/hacker.jpg"
 
 
 #Change Desktop to Darkmode
-lookandfeeltool -a org.kde.breezedark.desktop
+# Get the original user who invoked sudo (or the current user if not using sudo)
+USER=$(logname)
+# Set the environment variables for the user's session
+export XDG_RUNTIME_DIR="/run/user/$(id -u $USER)"
+export DISPLAY=:0
+# Get the DBus session of the user
+DBUS_SESSION=$(pgrep -u $USER -f "dbus-daemon.*--session" | head -n 1)
+# Run the lookandfeeltool command within the user's DBus session
+sudo -u $USER DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u $USER)/bus" lookandfeeltool -a org.kde.breezedark.desktop
+
 
 
 #Remove Gnome Desktop and Packages
