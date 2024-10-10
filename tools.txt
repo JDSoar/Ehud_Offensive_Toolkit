@@ -6,6 +6,7 @@ openvpn
 terminator
 tmux
 default-jre
+curl
 
 #Scanner
 nmap
