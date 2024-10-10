@@ -2,6 +2,7 @@
 
 echo "WARNING: Running this script will reboot your system!"
 
+#Set Wallpaper
 # Get the full path of the script's directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Check if script is being run as root (with sudo)
