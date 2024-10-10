@@ -1,15 +1,26 @@
 #Add tools from the APT repo below:
 
+#Tools
 git
 openvpn
+terminator
+tmux
+
+#Scanner
 nmap
-ffuf
-dirbuster
 nikto
 zaproxy
+
+#Password Cracking
+hashcat
 hydra
-wireshark
+john
+
+#Fuzzer
+ffuf
+dirbuster
 sqlmap
 subfinder
-hashcat
 
+#Packet Capture
+wireshark
