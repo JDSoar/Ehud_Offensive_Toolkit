@@ -36,7 +36,7 @@ sudo apt install -y debconf-utils
 echo "sddm shared/default-x-display-manager select sddm" | sudo debconf-set-selections
 
 #Minimize the on-screen Keyboard on Reboot
-
+sudo bash -c 'echo "InputMethod=" > /etc/sddm.conf'
 
 #Set Login Screen Background
 # Get the full path of the script's directory
