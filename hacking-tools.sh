@@ -88,6 +88,11 @@ printf "${GREEN}Installation process completed.${NC}\n"
 sudo apt install ruby-full
 sudo gem install wpscan
 
+#Install Caido
+sudo wget https://caido.download/releases/v0.42.0/caido-desktop-v0.42.0-linux-x86_64.deb
+sudo dpkg -i caido-desktop-v0.42.0-linux-x86_64.deb 
+
+
 echo "Installation process completed."
 
 
