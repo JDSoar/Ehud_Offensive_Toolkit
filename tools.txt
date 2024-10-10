@@ -5,6 +5,7 @@ git
 openvpn
 terminator
 tmux
+default-jre
 
 #Scanner
 nmap
