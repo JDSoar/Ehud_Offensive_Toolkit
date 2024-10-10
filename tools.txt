@@ -7,11 +7,9 @@ ffuf
 dirbuster
 nikto
 zaproxy
-burpsuite
 hydra
 wireshark
 sqlmap
-metasploit-framework
 subfinder
 hashcat
-wpscan
+
