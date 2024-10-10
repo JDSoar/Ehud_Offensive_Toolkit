@@ -92,6 +92,15 @@ sudo gem install wpscan
 sudo wget https://caido.download/releases/v0.42.0/caido-desktop-v0.42.0-linux-x86_64.deb
 sudo dpkg -i caido-desktop-v0.42.0-linux-x86_64.deb 
 
+#Install Go
+sudo wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+source ~/.profile
+go version
+
+#Install Nuclei
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
 echo "Installation process completed."
 
