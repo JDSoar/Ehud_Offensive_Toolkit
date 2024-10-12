@@ -26,12 +26,12 @@ lookandfeeltool -a org.kde.breezedark.desktop
 
 
 #Remove Gnome Desktop and Packages
-sudo apt purge ubuntu-desktop gnome-shell
-sudo apt purge gnome*
-sudo apt autoremove --purge
+sudo apt purge ubuntu-desktop gnome-shell -y
+sudo apt purge gnome* -y
+sudo apt autoremove --purge -y
 
 #Set KDE as the Default Login Display Manager
-sudo apt install sddm
+sudo apt install -y sddm
 sudo apt install -y debconf-utils
 echo "sddm shared/default-x-display-manager select sddm" | sudo debconf-set-selections
 #Minimize the on-screen Keyboard on Reboot
