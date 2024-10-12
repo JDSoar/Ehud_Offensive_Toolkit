@@ -31,13 +31,13 @@ fi
 #Add Kali Linux archives
 sudo sh -c "echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /etc/apt/sources.list.d/kali.list"
 sudo apt update 
-sudo apt install gnupg
+sudo apt install -y gnupg 
 wget 'https://archive.kali.org/archive-key.asc'
 sudo apt-key add archive-key.asc
 sudo apt update
 sudo sh -c "echo 'Package: *'>/etc/apt/preferences.d/kali.pref; echo 'Pin: release a=kali-rolling'>>/etc/apt/preferences.d/kali.pref; echo 'Pin-Priority: 50'>>/etc/apt/preferences.d/kali.pref"
 
-sudo apt install aptitude
+sudo apt install -y aptitude 
 sudo apt update
 
 #Install Packages from tools.txt
