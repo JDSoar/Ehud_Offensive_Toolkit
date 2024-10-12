@@ -101,7 +101,7 @@ go version
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source $HOME/.cargo/env
 #Install WPScan
-sudo apt install ruby-full
+sudo apt install -y ruby-full
 sudo gem install wpscan
 
 #Install Caido
