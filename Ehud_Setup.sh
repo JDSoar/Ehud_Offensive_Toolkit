@@ -90,6 +90,16 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ls='ls --color=auto'
 
+#Install Go
+sudo wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+source ~/.profile
+go version
+
+#Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env
 #Install WPScan
 sudo apt install ruby-full
 sudo gem install wpscan
@@ -97,13 +107,6 @@ sudo gem install wpscan
 #Install Caido
 sudo wget https://caido.download/releases/v0.42.0/caido-desktop-v0.42.0-linux-x86_64.deb
 sudo dpkg -i caido-desktop-v0.42.0-linux-x86_64.deb 
-
-#Install Go
-sudo wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
-echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
-source ~/.profile
-go version
 
 #Install Nuclei
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
