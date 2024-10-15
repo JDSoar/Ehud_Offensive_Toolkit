@@ -90,6 +90,11 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ls='ls --color=auto'
 
+#Install Snap
+sudo apt install snapd -y
+sudo snap install core 
+sudo systemctl start snapd
+
 #Wordlists
 sudo mkdir /wordlists
 sudo git clone https://github.com/danielmiessler/SecLists.git /wordlists/SecLists
