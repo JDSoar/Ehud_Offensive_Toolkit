@@ -1,13 +1,15 @@
 #!/bin/bash
 
-#Desktop Enviroment
+cat logo.txt
 
+#Desktop Enviroment
+echo "Viper Offensive Toolkit Setup"
 echo "Choose your Desktop Enviroment."
 echo " (1) KDE Plasma"
 echo " (2) XFCE"
 echo " (3) Skip and keep the default."
 
-echo "Enter Choice:"
+echo "Enter Selection:"
 read selection
 if [ "$selection" -eq 1 ]; then
     sudo apt update
