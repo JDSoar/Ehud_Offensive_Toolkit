@@ -90,6 +90,11 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ls='ls --color=auto'
 
+#Wordlists
+sudo mkdir /wordlists
+sudo git clone https://github.com/danielmiessler/SecLists.git /wordlists/SecLists
+sudo chown -R $USER:$USER /wordlists/SecLists
+
 #Install Go
 sudo wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
@@ -106,6 +111,9 @@ sudo gem install wpscan
 
 #Install Rustscan
 sudo snap install rustscan 
+
+#install httpx
+sudo snap install httpx
 
 #Install Caido
 sudo wget https://caido.download/releases/v0.42.0/caido-desktop-v0.42.0-linux-x86_64.deb
