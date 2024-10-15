@@ -94,6 +94,8 @@ alias ls='ls --color=auto'
 sudo mkdir /wordlists
 sudo git clone https://github.com/danielmiessler/SecLists.git /wordlists/SecLists
 sudo chown -R $USER:$USER /wordlists/SecLists
+echo 'export PATH="$PATH:/wordlists/SecLists"' >> ~/.bashrc
+source ~/.bashrc
 
 #Install Go
 sudo wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
@@ -105,6 +107,7 @@ go version
 #Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source $HOME/.cargo/env
+
 #Install WPScan
 sudo apt install -y ruby-full
 sudo gem install wpscan
