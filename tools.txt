@@ -24,6 +24,7 @@ dirbuster
 sqlmap
 subfinder
 gobuster
+dirsearch
 
 #Packet Capture
 wireshark
